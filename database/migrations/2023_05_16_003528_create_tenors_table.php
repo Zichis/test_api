@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('tenors', function (Blueprint $table) {
             $table->id();
+            $table->string('display_name')->unique();
+            $table->string('slug')->unique();
+            $table->integer('days')->nullable();
+            $table->integer('months')->nullable();
+            $table->integer('years')->nullable();
+            $table->string('description')->nullable();
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }
