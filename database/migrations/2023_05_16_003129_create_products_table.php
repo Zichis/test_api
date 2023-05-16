@@ -15,6 +15,16 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('category_id');
+            $table->string('display_name')->unique();
+            $table->string('title')->unique();
+            // $table->float('interest_rate')->nullable();
+            $table->string('slug')->unique();
+            $table->string('image')->nullable();
+            $table->string('abbreviation');
+            $table->string('category_description')->nullable();
+            $table->string('description')->nullable();
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }
